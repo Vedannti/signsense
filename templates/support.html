@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignSense | Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='support.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="support-container">
+    <h1>Support & Help</h1>
+    <p class="sub">We are here to help you</p>
+
+    <!-- CONTACT -->
+    <div class="card">
+        <h2>Contact Us</h2>
+        <p><b>Name:</b> Vedanti Jipkate</p>
+        <p><b>Email:</b> veduajipkate@gmail.com</p>
+        <p><b>Phone:</b> 7058052275</p>
+    <!-- FAQ -->
+<div class="card">
+    <h2>Help Topics</h2>
+
+    <!-- CATEGORY BUTTONS -->
+    <div class="faq-menu">
+        <button onclick="showFAQ('usage')">How to Use</button>
+        <button onclick="showFAQ('frontend')">Frontend</button>
+        <button onclick="showFAQ('backend')">Backend</button>
+        <button onclick="showFAQ('ai')">AI / Model</button>
+    </div>
+
+    <!-- HOW TO USE (DEFAULT OPEN) -->
+    <div class="faq-group" id="usage">
+        <div class="faq" onclick="toggleFAQ(this)">
+            <div class="faq-q">How do I start hand detection?</div>
+            <div class="faq-a">
+                Go to the Detect page and allow camera access to start real-time detection.
+            </div>
+        </div>
+
+        <div class="faq" onclick="toggleFAQ(this)">
+            <div class="faq-q">How do I use the Learn page?</div>
+            <div class="faq-a">
+                Click any alphabet to view hand sign images and zoomed views.
+            </div>
+        </div>
+
+        <div class="faq" onclick="toggleFAQ(this)">
+            <div class="faq-q">How does the game work?</div>
+            <div class="faq-a">
+                You must identify the correct alphabet based on the shown gesture.
+            </div>
+        </div>
+    </div>
+
+    <!-- FRONTEND -->
+    <div class="faq-group" id="frontend">
+        <div class="faq" onclick="toggleFAQ(this)">
+            <div class="faq-q">Which frontend technologies are used?</div>
+            <div class="faq-a">
+                HTML, CSS, and JavaScript with a responsive UI.
+            </div>
+        </div>
+    </div>
+
+    <!-- BACKEND -->
+    <div class="faq-group" id="backend">
+        <div class="faq" onclick="toggleFAQ(this)">
+            <div class="faq-q">Which backend framework is used?</div>
+            <div class="faq-a">
+                Flask (Python) is used for routing and server-side logic.
+            </div>
+        </div>
+
+        <div class="faq" onclick="toggleFAQ(this)">
+            <div class="faq-q">How is feedback stored?</div>
+            <div class="faq-a">
+                Feedback is stored persistently using SQLite database.
+            </div>
+        </div>
+    </div>
+
+    <!-- AI -->
+    <div class="faq-group" id="ai">
+        <div class="faq" onclick="toggleFAQ(this)">
+            <div class="faq-q">How does gesture recognition work?</div>
+            <div class="faq-a">
+                Hand landmarks are detected using computer vision and ML models.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleFAQ(box){
+    box.classList.toggle("open");
+}
+
+function showFAQ(id){
+    // Hide all groups
+    document.querySelectorAll(".faq-group").forEach(group => {
+        group.style.display = "none";
+    });
+
+    // Show selected group
+    document.getElementById(id).style.display = "block";
+}
+
+// 👇 SHOW "HOW TO USE" BY DEFAULT
+window.onload = function(){
+    showFAQ('usage');
+};
+</script>
+
+
+</body>
+</html>

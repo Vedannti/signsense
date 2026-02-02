@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignSense | Learn</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='learn.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="learn-page">
+
+    <!-- HEADER -->
+    <div class="learn-header">
+        <h1>Learn Sign Language (A–Z)</h1>
+        <p>Tap any alphabet to see gesture examples</p>
+
+        <div class="search-container">
+    <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+            type="text"
+            id="searchInput"
+            class="search-box"
+            placeholder="Search A–Z"
+            onkeyup="filterAlphabets()"
+        >
+    </div>
+</div>
+
+
+    <!-- GRID -->
+    <div class="alphabet-grid" id="alphabetGrid">
+
+        <!-- A -->
+        <div class="alphabet-card" data-letter="A" onclick="openModal('A')">
+            <div class="letter">A</div>
+            <img src="/static/images/A/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- B -->
+        <div class="alphabet-card" data-letter="B" onclick="openModal('B')">
+            <div class="letter">B</div>
+            <img src="/static/images/B/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- C -->
+        <div class="alphabet-card" data-letter="C" onclick="openModal('C')">
+            <div class="letter">C</div>
+            <img src="/static/images/C/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- D -->
+        <div class="alphabet-card" data-letter="D" onclick="openModal('D')">
+            <div class="letter">D</div>
+            <img src="/static/images/D/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- E -->
+        <div class="alphabet-card" data-letter="E" onclick="openModal('E')">
+            <div class="letter">E</div>
+            <img src="/static/images/E/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- F -->
+        <div class="alphabet-card" data-letter="F" onclick="openModal('F')">
+            <div class="letter">F</div>
+            <img src="/static/images/F/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- G -->
+        <div class="alphabet-card" data-letter="G" onclick="openModal('G')">
+            <div class="letter">G</div>
+            <img src="/static/images/G/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- H -->
+        <div class="alphabet-card" data-letter="H" onclick="openModal('H')">
+            <div class="letter">H</div>
+            <img src="/static/images/H/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- I -->
+        <div class="alphabet-card" data-letter="I" onclick="openModal('I')">
+            <div class="letter">I</div>
+            <img src="/static/images/I/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- J -->
+        <div class="alphabet-card" data-letter="J" onclick="openModal('J')">
+            <div class="letter">J</div>
+            <img src="/static/images/J/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- K -->
+        <div class="alphabet-card" data-letter="K" onclick="openModal('K')">
+            <div class="letter">K</div>
+            <img src="/static/images/K/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- L -->
+        <div class="alphabet-card" data-letter="L" onclick="openModal('L')">
+            <div class="letter">L</div>
+            <img src="/static/images/L/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- M -->
+        <div class="alphabet-card" data-letter="M" onclick="openModal('M')">
+            <div class="letter">M</div>
+            <img src="/static/images/M/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- N -->
+        <div class="alphabet-card" data-letter="N" onclick="openModal('N')">
+            <div class="letter">N</div>
+            <img src="/static/images/N/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- O -->
+        <div class="alphabet-card" data-letter="O" onclick="openModal('O')">
+            <div class="letter">O</div>
+            <img src="/static/images/O/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- P -->
+        <div class="alphabet-card" data-letter="P" onclick="openModal('P')">
+            <div class="letter">P</div>
+            <img src="/static/images/P/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- Q -->
+        <div class="alphabet-card" data-letter="Q" onclick="openModal('Q')">
+            <div class="letter">Q</div>
+            <img src="/static/images/Q/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- R -->
+        <div class="alphabet-card" data-letter="R" onclick="openModal('R')">
+            <div class="letter">R</div>
+            <img src="/static/images/R/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- S -->
+        <div class="alphabet-card" data-letter="S" onclick="openModal('S')">
+            <div class="letter">S</div>
+            <img src="/static/images/S/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- T -->
+        <div class="alphabet-card" data-letter="T" onclick="openModal('T')">
+            <div class="letter">T</div>
+            <img src="/static/images/T/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- U -->
+        <div class="alphabet-card" data-letter="U" onclick="openModal('U')">
+            <div class="letter">U</div>
+            <img src="/static/images/U/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- V -->
+        <div class="alphabet-card" data-letter="V" onclick="openModal('V')">
+            <div class="letter">V</div>
+            <img src="/static/images/V/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- W -->
+        <div class="alphabet-card" data-letter="W" onclick="openModal('W')">
+            <div class="letter">W</div>
+            <img src="/static/images/W/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- X -->
+        <div class="alphabet-card" data-letter="X" onclick="openModal('X')">
+            <div class="letter">X</div>
+            <img src="/static/images/X/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- Y -->
+        <div class="alphabet-card" data-letter="Y" onclick="openModal('Y')">
+            <div class="letter">Y</div>
+            <img src="/static/images/Y/img.png">
+            <p>View gesture</p>
+        </div>
+
+        <!-- Z -->
+        <div class="alphabet-card" data-letter="Z" onclick="openModal('Z')">
+            <div class="letter">Z</div>
+            <img src="/static/images/Z/img.png">
+            <p>View gesture</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- ===== MODAL ===== -->
+<div id="imageModal" class="modal">
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal()">×</button>
+
+        <h2 id="modalTitle"></h2>
+
+        <div class="modal-images">
+            <img id="img1">
+            <img id="img2">
+            <img id="img3">
+        </div>
+
+    </div>
+</div>
+
+<script>
+function openModal(letter){
+    document.getElementById("modalTitle").innerText =
+        "Gesture Examples for " + letter;
+
+    document.getElementById("img1").src = `/static/images/${letter}/img.png`;
+    document.getElementById("img2").src = `/static/images/${letter}/img_1.png`;
+    document.getElementById("img3").src = `/static/images/${letter}/img_2.png`;
+
+    document.getElementById("imageModal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("imageModal").style.display = "none";
+}
+function filterAlphabets(){
+    let input = document.getElementById("searchInput").value.toUpperCase();
+    let cards = document.querySelectorAll(".alphabet-card");
+
+    cards.forEach(card => {
+        let letter = card.getAttribute("data-letter");
+
+        if (letter.includes(input)) {
+            card.style.display = "block";
+            card.classList.add("highlight");
+        } else {
+            card.style.display = "none";
+            card.classList.remove("highlight");
+        }
+
+        if (input === "") {
+            card.style.display = "block";
+            card.classList.remove("highlight");
+        }
+    });
+}
+
+
+document.querySelectorAll(".modal-images img").forEach(img => {
+    img.addEventListener("click", () => {
+        img.classList.toggle("zoomed");
+    });
+});
+</script>
+
+</body>
+</html>

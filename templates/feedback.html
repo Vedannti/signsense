@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignSense | Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="feedback-container">
+    <h1>We Value Your Feedback</h1>
+    <p class="sub">Help us improve SignSense</p>
+
+    {% if message %}
+        <div class="success">{{ message }}</div>
+    {% endif %}
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <label>Rate your experience</label>
+        <select name="rating" required>
+            <option value="">Select rating</option>
+            <option>⭐ Excellent</option>
+            <option>😊 Good</option>
+            <option>🙂 Average</option>
+            <option>😐 Poor</option>
+        </select>
+
+        <textarea name="comment" placeholder="Your feedback..." required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+</div>
+
+</body>
+</html>

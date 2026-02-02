@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignSense | Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+
+<div class="login-container">
+
+    <h1>Sign In</h1>
+    <p class="subtitle">Access your SignSense dashboard</p>
+
+    <!-- LOGIN ERROR (only for wrong credentials) -->
+    {% if error %}
+        <script>
+            window.onload = function(){
+                showToast("❌ Invalid username or password", "error");
+            }
+        </script>
+    {% endif %}
+
+    <!-- LOGIN FORM -->
+    <form method="POST" action="/login">
+        <input type="text" name="username" placeholder="Username or Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <div class="forgot">
+            <a href="javascript:void(0)" onclick="openModal()">Forgot Password?</a>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p class="note">
+        New user?
+        <a href="/register">Create an account</a>
+    </p>
+
+</div>
+
+<!-- ===== FORGOT PASSWORD MODAL ===== -->
+<div id="forgotModal" class="modal" onclick="closeOnOutside(event)">
+    <div class="modal-content">
+
+        <!-- Close -->
+        <button class="close-btn" onclick="closeModal()">×</button>
+
+        <h2>Forgot Password</h2>
+        <p class="modal-sub">
+            Enter your registered email to receive password assistance
+        </p>
+
+        <form method="POST" action="/forgot" onsubmit="closeModal()">
+            <input type="email" name="email" placeholder="Email address" required>
+            <button type="submit" class="modal-btn">Send Email</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div id="toast" class="toast"></div>
+
+<script>
+/* MODAL */
+function openModal(){
+    document.getElementById("forgotModal").style.display = "flex";
+}
+function closeModal(){
+    document.getElementById("forgotModal").style.display = "none";
+}
+function closeOnOutside(e){
+    if(e.target.id === "forgotModal"){
+        closeModal();
+    }
+}
+
+/* TOAST */
+function showToast(message, type){
+    const toast = document.getElementById("toast");
+    toast.className = "toast " + type;
+    toast.innerText = message;
+
+    toast.classList.add("show");
+setTimeout(() => toast.classList.remove("show"), 1200);
+
+}
+
+/* READ QUERY PARAMS FROM FLASK */
+window.onload = function(){
+    const params = new URLSearchParams(window.location.search);
+
+    if(params.get("forgot_success")){
+        showToast("✅ Password assistance email sent successfully", "success");
+    }
+
+    if(params.get("forgot_error")){
+        showToast("❌ Email not registered", "error");
+    }
+};
+</script>
+
+</body>
+</html>

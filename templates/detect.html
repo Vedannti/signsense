@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignSense | Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='detect.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="detect-container">
+
+    <h1>Hand Gesture Detection</h1>
+    <p class="sub">Camera-based sign recognition (Demo Mode)</p>
+
+    <!-- CAMERA -->
+    <div class="camera-box">
+        <video id="video" autoplay muted></video>
+    </div>
+
+    <!-- PREDICTION -->
+    <div class="prediction-card">
+        <p class="pred-title">Predicted Alphabet</p>
+        <h1 id="predLetter">–</h1>
+        <p class="confidence">
+            Confidence: <span id="confidence">0%</span>
+        </p>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-btns">
+        <button class="btn" onclick="goLearn()">Send to Learn Page</button>
+        <button class="stop-btn" onclick="stopCamera()">Stop Camera</button>
+    </div>
+
+</div>
+
+<script>
+let videoStream = null;
+
+// Start camera
+navigator.mediaDevices.getUserMedia({ video: true })
+.then(stream => {
+    videoStream = stream;
+    document.getElementById("video").srcObject = stream;
+});
+
+// Stop camera
+function stopCamera(){
+    if(videoStream){
+        videoStream.getTracks().forEach(track => track.stop());
+        document.getElementById("video").srcObject = null;
+    }
+}
+
+// DEMO prediction (replace later with backend)
+setInterval(() => {
+    const letters = ["A","B","C","D","E"];
+    const randomLetter = letters[Math.floor(Math.random()*letters.length)];
+    const randomConf = Math.floor(70 + Math.random()*25);
+
+    document.getElementById("predLetter").innerText = randomLetter;
+    document.getElementById("confidence").innerText = randomConf + "%";
+}, 2500);
+
+function goLearn(){
+    window.location.href = "/learn?highlight=" +
+        document.getElementById("predLetter").innerText;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+body {
+    background: linear-gradient(135deg, #1e1b4b, #312e81, #0f766e);
+    color: white;
+    min-height: 100vh;
+}
+
+/* ===== LEARN PAGE WRAPPER ===== */
+.learn-page {
+    margin-top: 110px;
+    padding: 40px 60px;
+}
+
+/* ===== HEADER ===== */
+.learn-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.learn-header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.learn-header p {
+    font-size: 16px;
+    color: #e0e7ff;
+}
+
+/* ===== GRID ===== */
+.alphabet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+}
+
+/* ===== CARDS ===== */
+.alphabet-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alphabet-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== LETTER ===== */
+.letter {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #f8fafc;
+}
+
+/* ===== CARD IMAGE ===== */
+.alphabet-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    background: white;
+}
+
+/* ===== DESCRIPTION ===== */
+.alphabet-card p {
+    font-size: 14px;
+    color: #e0e7ff;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(135deg, #2b1055, #3a1c71, #1fa2ff);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    opacity: 0.85;
+}
+
+/* ===== MODAL OVERLAY ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+/* ===== MODAL CONTENT ===== */
+.modal-content {
+    position: relative;
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    padding: 30px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 700px;
+    color: white;
+    text-align: center;
+    animation: scaleIn 0.3s ease;
+}
+
+/* ===== MODAL IMAGES ===== */
+.modal-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.modal-images img {
+    width: 180px;
+    border-radius: 14px;
+    background: white;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.modal-images img:hover {
+    transform: scale(1.1);
+}
+
+.modal-images img.zoomed {
+    transform: scale(1.5);
+    cursor: zoom-out;
+}
+
+/* ===== CLOSE BUTTON ===== */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===== MOBILE SAFE ===== */
+@media (max-width: 768px) {
+    .learn-page {
+        padding: 30px 20px;
+    }
+
+    .learn-header h1 {
+        font-size: 32px;
+    }
+
+    .modal-images img {
+        width: 140px;
+    }
+}
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    /* Page padding */
+    .learn-page {
+        padding: 20px 16px;
+        margin-top: 90px;
+    }
+
+    /* Header text */
+    .learn-header h1 {
+        font-size: 28px;
+    }
+
+    .learn-header p {
+        font-size: 14px;
+    }
+
+    /* Grid becomes 2 columns */
+    .alphabet-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    /* Cards */
+    .alphabet-card {
+        padding: 14px;
+    }
+
+    .letter {
+        font-size: 28px;
+    }
+
+    .alphabet-card img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .alphabet-card p {
+        font-size: 13px;
+    }
+
+    /* Modal popup */
+    .modal-content {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .modal-images {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .modal-images img {
+        width: 100%;
+        max-width: 260px;
+        margin: auto;
+    }
+
+    /* Close button easier to tap */
+    .close-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 24px;
+    }
+}
+/* ===== MOBILE NAVBAR FIX ===== */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0 16px;
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 20px;
+        padding: 4px 10px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 8px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+}
+/* ===== MOBILE MODAL IMAGE FIX ===== */
+@media (max-width: 768px) {
+
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-images {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .modal-images img {
+        width: 60%;
+        max-width: 140px;
+    }
+}
+/* ===== FORCE ONE-LINE NAVBAR (MOBILE) ===== */
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-wrap: nowrap;          /* ❌ no second line */
+        overflow-x: auto;           /* allow horizontal scroll */
+        padding: 0 7px;
+    }
+
+    .navbar::-webkit-scrollbar {
+        display: none;              /* hide scrollbar */
+    }
+
+    .logo {
+        flex-shrink: 0;             /* logo never wraps */
+        font-size: 18px;
+        padding: 4px 8px;
+    }
+
+    .nav-links {
+        flex-wrap: nowrap;          /* ❌ no wrapping */
+        gap: 2px;
+        margin-left: auto;
+    }
+
+    .nav-links a {
+        white-space: nowrap;        /* keep text in one line */
+        font-size: 6px;
+        padding: 6px 7px;
+    }
+}
+/* ===== SEARCH CONTAINER (TRUE CENTER) ===== */
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;   /* 👈 THIS fixes centering */
+    margin: 30px 0 40px;
+}
+
+/* Compact search box */
+.search-wrapper {
+    position: relative;
+    width: 320px;              /* fixed size */
+}
+
+.search-box {
+    width: 100%;
+    padding: 14px 16px 14px 46px;
+    font-size: 16px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.22);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.search-box::placeholder {
+    color: #e0e7ff;
+}
+
+/* Search icon */
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0.9;
+}
+/* ===== SEARCH ANIMATION ===== */
+
+/* Glow when focused */
+.search-box:focus {
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.25),
+        0 0 18px rgba(138, 43, 226, 0.7);
+    animation: searchPulse 1.5s infinite;
+}
+
+/* Pulse animation */
+@keyframes searchPulse {
+    0% {
+        box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(138, 43, 226, 0.15);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.3);
+    }
+}
+/* ===== SEARCH MATCH HIGHLIGHT ===== */
+.alphabet-card.highlight {
+    border: 2px solid rgba(138, 43, 226, 0.7);
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
+    transform: scale(1.05);
+}

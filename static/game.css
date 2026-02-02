@@ -1,0 +1,213 @@
+*{
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    margin:0;
+    background: radial-gradient(circle at top, #8a2be2, #3a0ca3 40%, #081c24 75%);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    color:white;
+}
+
+/* ================= TOP MENU ================= */
+.top-nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:64px;
+    background:linear-gradient(135deg,#7f00ff,#3a0ca3,#240046);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 32px;
+    z-index:1000;
+    box-shadow:0 6px 25px rgba(0,0,0,0.45);
+}
+
+.nav-left{
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:1px;
+    color:white;
+}
+
+.nav-right{
+    display:flex;
+    gap:26px;
+}
+
+.nav-right a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    padding:6px 14px;
+    border-radius:12px;
+    transition:.25s;
+}
+
+.nav-right a:hover{
+    background:rgba(255,255,255,.2);
+}
+
+.logout{
+    background:rgba(255,255,255,.25);
+}
+
+/* ================= GAME CARD ================= */
+.game-box{
+    width:95%;
+    max-width:560px;
+    background:rgba(255,255,255,0.14);
+    backdrop-filter:blur(20px);
+    border-radius:26px;
+    padding:30px;
+    margin-top:110px;   /* ⬅ space below menu */
+    box-shadow:
+        0 0 40px rgba(138,43,226,.35),
+        0 40px 90px rgba(0,0,0,.55);
+    position:relative;
+    text-align:center;
+}
+
+/* ================= HEADINGS ================= */
+h1{
+    font-size:36px;
+    margin-bottom:6px;
+}
+
+.sub{
+    font-size:14px;
+    opacity:.85;
+}
+
+/* ================= INFO BAR ================= */
+.info{
+    display:flex;
+    justify-content:space-between;
+    margin-top:12px;
+    font-size:14px;
+    background:rgba(0,0,0,0.25);
+    padding:8px 14px;
+    border-radius:14px;
+}
+
+/* ================= SIGN IMAGE ================= */
+.sign-img{
+    width:260px;
+    height:260px;
+    margin:22px auto;
+    background:white;
+    border-radius:22px;
+    object-fit:contain;
+    box-shadow:
+        0 0 20px rgba(255,255,255,.4),
+        0 0 40px rgba(138,43,226,.4);
+}
+
+/* ================= KEYBOARD ================= */
+.keyboard{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.key{
+    padding:14px 0;
+    border-radius:14px;
+    background:rgba(255,255,255,0.18);
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.key:hover{
+    background:#b517ff;
+    box-shadow:0 0 18px rgba(181,23,255,.7);
+    transform:translateY(-3px);
+}
+
+/* ================= FEEDBACK ================= */
+.correct{
+    background:#22c55e !important;
+    color:#022c22;
+}
+
+.wrong{
+    background:#fb7185 !important;
+    color:#7f1d1d;
+}
+
+/* ================= BUTTON ================= */
+.btn{
+    margin-top:22px;
+    padding:14px 40px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(135deg,#b517ff,#7209b7);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* ================= STREAK ================= */
+.streak{
+    position:absolute;
+    top:16px;
+    left:16px;
+    font-size:16px;
+    font-weight:600;
+    color:#ffd6ff;
+}
+/* Active menu item */
+.nav-right a.active{
+    background: linear-gradient(135deg,#b517ff,#7209b7);
+    box-shadow: 0 0 20px rgba(181,23,255,.7);
+}
+
+/* Smooth hover */
+.nav-right a{
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-right a::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(255,255,255,.25);
+    opacity:0;
+    transition:.3s;
+}
+
+.nav-right a:hover::after{
+    opacity:1;
+}
+@media (max-width: 768px){
+    .top-nav{
+        flex-wrap: wrap;
+        height: auto;
+        padding: 15px;
+    }
+
+    .nav-right{
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-left{
+        width:100%;
+        text-align:center;
+        margin-top:10px;
+    }
+}

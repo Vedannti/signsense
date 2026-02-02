@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignSense | Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+{% include 'navbar.html' %}
+
+<div class="dashboard-container">
+
+    <h1>Welcome to SignSense</h1>
+    <p class="subtitle">
+        Choose a feature to begin your sign language journey
+    </p>
+
+    <div class="card-grid">
+
+        <a href="/detect" class="card">
+            <h2>📷 Live Detection</h2>
+            <p>Detect hand gestures in real time using AI</p>
+        </a>
+
+        <a href="/learn" class="card">
+            <h2>📘 Learn Signs</h2>
+            <p>Learn sign language alphabets step by step</p>
+        </a>
+
+        <a href="/game" class="card">
+            <h2>🎮 Practice Game</h2>
+            <p>Practice gestures through interactive tasks</p>
+        </a>
+
+        <a href="/feedback" class="card">
+            <h2>💬 Feedback</h2>
+            <p>Share your experience and suggestions</p>
+        </a>
+
+        <a href="/support" class="card">
+            <h2>🆘 Support</h2>
+            <p>Get help and learn about accessibility</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
