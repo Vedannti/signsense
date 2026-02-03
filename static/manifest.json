@@ -1,0 +1,10 @@
+{
+  "name": "SignSense",
+  "short_name": "SignSense",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#2b1055",
+  "theme_color": "#2b1055",
+  "orientation": "portrait"
+}
