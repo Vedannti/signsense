@@ -1,3 +1,4 @@
+print("🔥 THIS app.py IS RUNNING 🔥")
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import os
@@ -163,12 +164,39 @@ def game():
         return redirect("/login")
     return render_template("game.html")
 
+@app.route('/feedback', methods=['GET', 'POST'])
+def feedback():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        rating = request.form['rating']
+        comment = request.form['comment']
+
+        print("Feedback received:")
+        print(name, email, rating, comment)
+
+        return render_template(
+            'feedback.html',
+            message="✅ Thank you for your feedback!"
+        )
+
+    return render_template('feedback.html')
+
+
+@app.route("/support")
+def support():
+    session.clear()
+    return redirect("/support")
 
 # -------- LOGOUT --------
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect("/login")
+
+@app.route("/test")
+def test():
+    return "TEST PAGE WORKING"
 
 # ================= RUN =================
 
