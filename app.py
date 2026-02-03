@@ -40,6 +40,22 @@ def create_table():
     conn.close()
 
 create_table()
+def create_feedback_table():
+    conn = get_db()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS feedback(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            email TEXT,
+            rating TEXT,
+            comment TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+create_feedback_table()
 
 # ================= EMAIL =================
 
@@ -166,18 +182,29 @@ def game():
 
 @app.route('/feedback', methods=['GET', 'POST'])
 def feedback():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        rating = request.form['rating']
-        comment = request.form['comment']
+    if "user_id" not in session:
+        return redirect("/login")
 
-        print("Feedback received:")
-        print(name, email, rating, comment)
+    if request.method == 'POST':
+        name = request.form['name'].strip()
+        email = request.form['email'].strip()
+        rating = request.form['rating']
+        comment = request.form['comment'].strip()
+
+        conn = get_db()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            INSERT INTO feedback (name, email, rating, comment)
+            VALUES (?, ?, ?, ?)
+        """, (name, email, rating, comment))
+
+        conn.commit()
+        conn.close()
 
         return render_template(
             'feedback.html',
-            message="✅ Thank you for your feedback!"
+            message="✅ Thank you! Your feedback has been saved."
         )
 
     return render_template('feedback.html')
@@ -199,6 +226,6 @@ def test():
     return "TEST PAGE WORKING"
 
 # ================= RUN =================
-
+print(app.url_map)
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

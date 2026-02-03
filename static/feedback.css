@@ -1,126 +1,88 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',Arial,sans-serif;
-}
-
-body{
-    min-height:100vh;
-    padding-top:90px;
-    background: linear-gradient(135deg,#2b1055,#3a0ca3,#081c24);
-    color:white;
-}
-
-/* Container */
-.feedback-container{
-    max-width:520px;
-    margin:40px auto;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(16px);
-    padding:35px;
-    border-radius:24px;
-    text-align:center;
-    box-shadow: 0 0 40px rgba(138,43,226,.4);
-}
-
-/* Heading */
-.feedback-container h1{
-    font-size:34px;
-    margin-bottom:8px;
-}
-
-.sub{
-    font-size:14px;
-    opacity:.85;
-    margin-bottom:25px;
-}
-
-/* Inputs */
-.feedback-container input,
-.feedback-container select,
-.feedback-container textarea{
-    width:100%;
-    margin-top:14px;
-    padding:14px;
-    border-radius:14px;
-    border:none;
-    outline:none;
-    font-size:15px;
-}
-
-/* Textarea */
-textarea{
-    min-height:120px;
-    resize:none;
-}
-
-/* Button */
-.feedback-container button{
-    margin-top:22px;
-    padding:14px 40px;
-    border:none;
-    border-radius:40px;
-    background: linear-gradient(135deg,#b517ff,#7209b7);
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    transition:.3s;
-    box-shadow: 0 0 25px rgba(181,23,255,.6);
-}
-
-.feedback-container button:hover{
-    transform:translateY(-3px);
-    box-shadow: 0 0 40px rgba(181,23,255,.9);
-}
-
-/* Success message */
-.success{
-    background: rgba(34,197,94,.3);
-    padding:12px;
-    border-radius:12px;
-    margin-bottom:15px;
-}
-/* ===== NAVBAR (HIGH VISIBILITY) ===== */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
+body {
     background: linear-gradient(135deg, #2b1055, #3a1c71, #1fa2ff);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
-    z-index: 9999;
-}
-
-/* Website name */
-.logo {
-    font-size: 26px;
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: 2px;
-    padding: 6px 14px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.18);
-}
-/* Navbar menu text in white */
-.nav-links a {
+    min-height: 100vh;
     color: white;
-    text-decoration: none;   /* no underline */
-    font-size: 15px;
-    font-weight: 500;
+    font-family: "Poppins", Arial, sans-serif;
 }
 
-/* Optional: hover effect (still white) */
-.nav-links a:hover {
-    opacity: 0.85;
-}
-/* Increase spacing between navbar menu items */
-.nav-links {
+.feedback-wrapper {
+    margin-top: 100px;
     display: flex;
-    gap: 30px;   /* 👈 increase this value if you want more space */
+    justify-content: center;
+    padding: 20px;
+}
+
+.feedback-card {
+    width: 100%;
+    max-width: 480px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+}
+
+.feedback-card h1 {
+    text-align: center;
+    font-size: 34px;
+    color: #e0c3fc;
+}
+
+.sub {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #f0e9ff;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+.field label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #7f5af0, #1fa2ff);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.success-box {
+    background: rgba(34,197,94,0.25);
+    border-left: 4px solid #22c55e;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    font-size: 14px;
 }

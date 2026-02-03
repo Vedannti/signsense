@@ -9,31 +9,60 @@
 
 {% include 'navbar.html' %}
 
-<div class="feedback-container">
-    <h1>We Value Your Feedback</h1>
-    <p class="sub">Help us improve SignSense</p>
+<div class="feedback-wrapper">
 
-    {% if message %}
-        <div class="success">{{ message }}</div>
-    {% endif %}
+    <div class="feedback-card">
+        <h1>💬 Feedback</h1>
+        <p class="sub">
+            Your feedback helps us improve SignSense
+        </p>
 
-    <form method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
+        <!-- SUCCESS MESSAGE -->
+        {% if message %}
+            <div class="success-box">
+                {{ message }}
+            </div>
+        {% endif %}
 
-        <label>Rate your experience</label>
-        <select name="rating" required>
-            <option value="">Select rating</option>
-            <option>⭐ Excellent</option>
-            <option>😊 Good</option>
-            <option>🙂 Average</option>
-            <option>😐 Poor</option>
-        </select>
+        <!-- FEEDBACK FORM -->
+        <form method="POST">
 
-        <textarea name="comment" placeholder="Your feedback..." required></textarea>
+            <div class="field">
+                <label>Your Name</label>
+                <input type="text" name="name" placeholder="Enter your name" required>
+            </div>
 
-        <button type="submit">Submit Feedback</button>
-    </form>
+            <div class="field">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="field">
+                <label>Rate your experience</label>
+                <select name="rating" required>
+                    <option value="">Select rating</option>
+                    <option>⭐ Excellent</option>
+                    <option>😊 Good</option>
+                    <option>🙂 Average</option>
+                    <option>😐 Poor</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Your Feedback</label>
+                <textarea name="comment"
+                          placeholder="Write your feedback here..."
+                          rows="4"
+                          required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Feedback
+            </button>
+
+        </form>
+    </div>
+
 </div>
 
 </body>

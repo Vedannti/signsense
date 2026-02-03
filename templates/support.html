@@ -107,6 +107,13 @@ function showFAQ(id){
     // Show selected group
     document.getElementById(id).style.display = "block";
 }
+function showFAQ(id){
+    document.querySelectorAll(".faq-group").forEach(g => g.style.display = "none");
+    document.getElementById(id).style.display = "block";
+
+    document.querySelectorAll(".faq-menu button").forEach(b => b.classList.remove("active"));
+    event.target.classList.add("active");
+}
 
 // 👇 SHOW "HOW TO USE" BY DEFAULT
 window.onload = function(){

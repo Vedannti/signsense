@@ -61,9 +61,10 @@ body {
 /* ================== FAQ MENU ================== */
 .faq-menu {
     display: flex;
+    justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 30px;
+    margin: 30px 0;
 }
 
 .faq-menu button {
@@ -76,12 +77,17 @@ body {
     border-radius: 14px;
     cursor: pointer;
     transition: 0.3s ease;
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.5);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.45);
 }
 
 .faq-menu button:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(124, 58, 237, 0.8);
+}
+
+.faq-menu button.active {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.7);
 }
 
 /* ================== FAQ GROUP ================== */
@@ -96,11 +102,11 @@ body {
     border-radius: 16px;
     margin-bottom: 16px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .faq:hover {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.55);
 }
 
 /* ================== FAQ QUESTION ================== */
@@ -112,16 +118,19 @@ body {
 
 /* ================== FAQ ANSWER ================== */
 .faq-a {
-    display: none;
-    margin-top: 12px;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
     font-size: 16px;
     line-height: 1.6;
     color: #e0e7ff;
+    transition: max-height 0.35s ease, margin-top 0.35s ease;
 }
 
 /* OPEN STATE */
 .faq.open .faq-a {
-    display: block;
+    max-height: 300px;
+    margin-top: 12px;
 }
 
 /* ================== RESPONSIVE ================== */
@@ -151,7 +160,8 @@ body {
         font-size: 15px;
     }
 }
-/* ===== NAVBAR (HIGH VISIBILITY) ===== */
+
+/* ================== NAVBAR ================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -177,20 +187,20 @@ body {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.18);
 }
-/* Navbar menu text in white */
+
+/* Navbar links */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
 .nav-links a {
     color: white;
-    text-decoration: none;   /* no underline */
+    text-decoration: none;
     font-size: 15px;
     font-weight: 500;
 }
 
-/* Optional: hover effect (still white) */
 .nav-links a:hover {
     opacity: 0.85;
-}
-/* Increase spacing between navbar menu items */
-.nav-links {
-    display: flex;
-    gap: 30px;   /* 👈 increase this value if you want more space */
 }
